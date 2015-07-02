@@ -5,16 +5,46 @@
   <parent>
     <groupId>org.helstern</groupId>
     <artifactId>mork</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.0-snapshot</version>
   </parent>
-  <groupId>org.helstern</groupId>
+
+  <groupId>org.helstern.mork</groupId>
   <artifactId>oauth2-client</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.0-snapshot</version>
   <name>oauth2-client</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -27,8 +57,16 @@
       <groupId>javax.ws.rs</groupId>
       <artifactId>javax.ws.rs-api</artifactId>
       <version>2.0.1</version>
-      <scope>runtime</scope>
+      <scope>provided</scope>
     </dependency>
+
+    <dependency>
+      <groupId>javax.json</groupId>
+      <artifactId>javax.json-api</artifactId>
+      <scope>provided</scope>
+      <version>1.0</version>
+    </dependency>
+
   </dependencies>
 
 </project>
